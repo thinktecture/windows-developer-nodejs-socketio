@@ -4,7 +4,9 @@
   "description": "Simple Node.js &amp; Socket.io sample",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"static .\" \"open http://localhost:8080/src/client/index.html\"",
+    "server": "node src/server/chatServer.js",
+    "watch": "nodemon src/server/chatServer.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,14 @@
   "bugs": {
     "url": "https://github.com/thinktecture/windows-developer-nodejs-socketio/issues"
   },
-  "homepage": "https://github.com/thinktecture/windows-developer-nodejs-socketio#readme"
+  "homepage": "https://github.com/thinktecture/windows-developer-nodejs-socketio#readme",
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.3",
+    "socket.io": "1.4.8"
+  },
+  "devDependencies": {
+    "concurrently": "2.2.0",
+    "node-static": "0.7.8",
+    "nodemon": "1.10.2"
+  }
 }

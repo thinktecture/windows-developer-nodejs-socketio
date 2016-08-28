@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sample Socket.io Chat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1 class="display-3">Socket.io Sample</h1>
+                    <p class="lead">This is a sample application to show the usage of Node.js and Socket.io based on a chat application.</p>
+                    <hr class="m-y-1">
+                    <form class="form-inline" id="name-form">
+                        <div class="form-group">
+                            <label for="name" class="form-control-label">Please tell me your name:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="Bob">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <form id="new-room-form" action="javascript:">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="New room name..." id="new-room-name">
+                    </div>
+                </form>
+
+                <ul class="list-group" id="rooms">
+
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <form id="add-message-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="message-text" placeholder="If you've joined a room, type in a message and press enter to send it...">
+                    </div>
+                </form>
+
+                <ul class="list-group" id="message-log">
+                    <li class="list-group-item">You have to join a room in order to chat with someone.</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>Chatters</h3>
+                <ul class="list-group" id="chatters">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../node_modules/socket.io-client/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
