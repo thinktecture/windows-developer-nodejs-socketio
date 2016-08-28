@@ -17,7 +17,6 @@ class ChatServer {
         this._io = socketIo(this._port);
 
         this._io.on('connection', socket => {
-            console.log('New chatter');
             socket.room = '';
             socket.name = '';
 
@@ -37,8 +36,6 @@ class ChatServer {
     }
 
     _joinRoom(socket, roomName) {
-        console.log(socket.name, 'changes room from', socket.room, 'to', roomName);
-
         if (socket.room) {
             socket.leave(socket.room, () => {
                 this._io.in(socket.room).emit('chatter-left', socket.name);

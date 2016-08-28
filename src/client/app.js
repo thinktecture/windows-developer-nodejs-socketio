@@ -6,8 +6,6 @@
     function initalize() {
         initializeControls();
         initializeSocketIo();
-
-        console.log('Initialized');
     }
 
     function initializeControls() {
@@ -61,8 +59,6 @@
 
     function changeName() {
         var newName = controls.name.value;
-
-        console.log('changing name to', newName);
         socket.emit('change-name', newName);
     }
 
