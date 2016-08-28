@@ -21,6 +21,8 @@ class ChatServer {
             socket.room = '';
             socket.name = '';
 
+            socket.emit('rooms', this._getRooms());
+
             socket.on('join-room', msg => this._joinRoom(socket, msg));
             socket.on('change-name', name => {
                 socket.name = name;
@@ -53,12 +55,12 @@ class ChatServer {
         socket.join(roomName, () => {
             socket.room = roomName;
             this._io.in(socket.room).emit('chatter-joined', socket.name);
-            this._sendRooms();
+            this._io.sockets.emit('rooms', this._getRooms());
             this._sendAllChattersInRoom(socket.room);
         });
     }
 
-    _sendRooms() {
+    _getRooms() {
         const rooms = {};
 
         Object.keys(this._io.sockets.connected).forEach(socketId => {
@@ -69,7 +71,7 @@ class ChatServer {
             }
         });
 
-        this._io.sockets.emit('rooms', Object.keys(rooms));
+        return Object.keys(rooms);
     }
 
     _sendAllChattersInRoom(roomName) {
@@ -79,17 +81,14 @@ class ChatServer {
             return;
         }
 
-        const chatters = {};
+        const chatters = [];
 
         Object.keys(room.sockets).forEach(socketId => {
             const socket = this._io.sockets.connected[socketId];
-
-            if (socket.name) {
-                chatters[socket.name] = '';
-            }
+            chatters.push(socket.name);
         });
 
-        this._io.sockets.in(roomName).emit('chatters', Object.keys(chatters));
+        this._io.sockets.in(roomName).emit('chatters', chatters);
     }
 }
 
