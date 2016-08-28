@@ -1,0 +1,26 @@
+{
+  "name": "windows-developer-nodejs-socketio",
+  "version": "1.0.0",
+  "description": "Simple Node.js &amp; Socket.io sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinktecture/windows-developer-nodejs-socketio.git"
+  },
+  "keywords": [
+    "nodejs",
+    "socketio",
+    "realtime",
+    "websocket",
+    "websockets"
+  ],
+  "author": "Manuel Rauber <manuel.rauber@thinktecture.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinktecture/windows-developer-nodejs-socketio/issues"
+  },
+  "homepage": "https://github.com/thinktecture/windows-developer-nodejs-socketio#readme"
+}
