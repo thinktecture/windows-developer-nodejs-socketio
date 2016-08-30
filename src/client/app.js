@@ -3,7 +3,7 @@
 
     var controls, socket;
 
-    function initalize() {
+    function initialize() {
         initializeControls();
         initializeSocketIo();
     }
@@ -128,5 +128,5 @@
         return item;
     }
 
-    window.addEventListener('load', initalize);
+    window.addEventListener('load', initialize);
 }();
