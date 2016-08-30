@@ -4,8 +4,7 @@
   "description": "Simple Node.js &amp; Socket.io sample",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"node src/server/chatServer.js\" \"static .\" \"open http://localhost:8080/src/client/index.html\"",
-    "watch": "nodemon src/server/chatServer.js"
+    "start": "concurrently \"nodemon src/server/chatServer.js\" \"static .\" \"open http://localhost:8080/src/client/index.html\""
   },
   "repository": {
     "type": "git",
