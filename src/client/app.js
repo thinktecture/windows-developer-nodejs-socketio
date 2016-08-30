@@ -81,7 +81,7 @@
         allRooms.forEach(function (room) {
             var item = createListItem(room);
 
-            item .addEventListener('click', function () {
+            item.addEventListener('click', function () {
                 changeRoom(room);
             });
 
